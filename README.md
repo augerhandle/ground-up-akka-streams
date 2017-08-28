@@ -16,13 +16,20 @@ A simple, step-by-step "getting started" introduction to Akka Streams.
 * You know SBT.
 * You're trying to figure out how to understand Akka Streams but are looking for something different than their Getting Started guide.
 
-## This is STEP-1. What's in it?
+## This is STEP-2. What's in it?
 
-Just a simple hello-world type application.
+In the step we introduce some basics of Akka. This involves
+
+* package dependencies
+* package imports
+* creating and terminating an ActorSystem (which will be required when we start using Akka Streams)
+* and a bit of logging (using Akka logging, which ensures your logging is ansynchronous)
+
+(Use git diff to see what was added since the last step.)
 
 ## What's in previous steps?
 
-There _are_ no previous steps! This is the first one.
+* step-1 : just a hello world app
 
 ## Building and Running
 
