@@ -20,9 +20,14 @@ A simple, step-by-step "getting started" introduction to Akka Streams.
 
 In the step we introduce some basics of Akka Streams. This involves
 
-* creating a "source" with several items in it
-* specifying the processing to happen on each item in the source
-* running it
+* creating a "source" 
+* create a couple "flows" (processing steps)
+* create a "sink"
+* wire all of them together 
+* and then run the result
+
+There's a bit of "magic" going on here, as the specific types are omitted, making this code seem a bit easier than it really is.
+We'll try to clarify the types in the next step. For now, the focus is on constructing source/flow/sink "graphs" and running them.
 
 (Use git diff to see what was added since the last step.)
 
