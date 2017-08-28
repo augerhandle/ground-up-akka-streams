@@ -1,5 +1,3 @@
-import Dependencies._
-
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
@@ -9,3 +7,8 @@ lazy val root = (project in file(".")).
     )),
     name := "ground-up-akka-streams"
   )
+
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" % "akka-stream_2.12" % "2.5.4",
+  "ch.qos.logback" % "logback-classic" % "1.1.7",
+  "com.typesafe.akka" % "akka-slf4j_2.12" % "2.5.4")
