@@ -1,4 +1,4 @@
-# grount-up-akka-streams
+# ground-up-akka-streams
 
 ## What is this?
 
