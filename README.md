@@ -21,13 +21,23 @@ A simple, step-by-step "getting started" introduction to Akka Streams.
 In the step we introduce some basics of Akka Streams. This involves
 
 * creating a "source" 
-* create a couple "flows" (processing steps)
+* create a few "flows" (processing steps)
 * create a "sink"
-* wire all of them together 
-* and then run the result
+* wire all of them together into a "graph"
+* and then run the graphs
+
+The idea is this...
+
+* You start with a source.
+* You add flows to is by calling the `via()` method for each flow you want to tack onto the graph.
+* You complete the graphs by adding a sink using the `to()` method.
+* No data actually "flows" thru the graph until you "materialize" the graph by calling `run()`.
+
+The interesting thing, here (and something that is glossed over by a lot of getting started examples), it that the sources, flows, sinks and graphs are all components that can be reused independently of any particular stream of data. It's not until you explicitly call the `run()`
+method (or other methods that often take the form `runXXX()`), that any data actually flows thru the graphs.
 
 There's a bit of "magic" going on here, as the specific types are omitted, making this code seem a bit easier than it really is.
-We'll try to clarify the types in the next step. For now, the focus is on constructing source/flow/sink "graphs" and running them.
+We'll try to clarify the types in the next step. 
 
 (Use git diff to see what was added since the last step.)
 
