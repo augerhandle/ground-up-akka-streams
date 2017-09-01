@@ -16,19 +16,23 @@ A simple, step-by-step "getting started" introduction to Akka Streams.
 * You know SBT.
 * You're trying to figure out how to understand Akka Streams but are looking for something different than their Getting Started guide.
 
-## This is STEP-4. What's in it?
+## This is STEP-5. What's in it?
 
-In the step we add some explicit types to the previous step.
-In STEP-3, we took advantage of Scala's type inference to leave off most of the type details.
-But to really understanding what is going on in the code,
-and to really understand the Akka Streams API, it helps to see the types explicitly.
+In the step we change the sink to be slightly more complex. Instead of just printing/logging all of the items in the stream, it 
+folds over the stream to calculate a running sum. That means that when the graph is run, the result returned by the `run()`` method
+is the final aggregate sum. (Actually it's a `Future`, since aggregate calculations over streams could in practice take a while to complete.)
 
-Other than being more explicit with types, this code does nothing fundamentally different than the code in STEP-3.
+We need to do some extra work to ensure that the materialized result of the sink (the aggregate sum) is what is returned by the graph when it is run. So we use `toMat()` instead of `to()` when we wire the sink up to the graph. 
+
+Finally, because the result of running the graph is a `Future` (of the aggregate sum), in order to get the sum itself, we need to *await* on the result of that future.
+
+That's the only essential difference between this and the previous step.
 
 (Use git diff to see what was added since the last step.)
 
 ## What's in previous steps?
 
+* STEP-4 : be explicit about types
 * STEP-3 : construct and run a simple Akka streams graph
 * STEP-2 : getting started with some simple Akka (non-streams) 
 * STEP-1 : a (non-Akka) hello world app
