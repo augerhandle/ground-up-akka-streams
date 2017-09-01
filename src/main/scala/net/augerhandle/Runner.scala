@@ -19,7 +19,7 @@ class Runner( actorSystem : ActorSystem ) {
     val flow1  : Flow[Int, Int, NotUsed]      = Flow[Int].map( i => i + 1 )
     val flow2  : Flow[Int, Int, NotUsed]      = Flow[Int].filter( i => i % 2 == 0 )
     val flow3  : Flow[Int, Double, NotUsed]   = Flow[Int].map( i => i * 3.0 )
-    val sink   : Sink[Double, Future[Double]] = Sink.fold[Double,Double](0.0)( updateRunningSum )
+    val sink   : Sink[Double, Future[Double]] = Sink.fold[Double,Double](0.0)( (sum, x) => updateRunningSum(sum,x) )
 
     // wire up the components into a graph
     val graph : RunnableGraph[Future[Double]] = 
