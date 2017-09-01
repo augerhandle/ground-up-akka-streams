@@ -19,7 +19,7 @@ A simple, step-by-step "getting started" introduction to Akka Streams.
 ## This is STEP-5. What's in it?
 
 In the step we change the sink to be slightly more complex. Instead of just printing/logging all of the items in the stream, it 
-folds over the stream to calculate a running sum. That means that when the graph is run, the result returned by the `run()`` method
+folds over the stream to calculate a running sum. That means that when the graph is run, the result returned by the `run()` method
 is the final aggregate sum. (Actually it's a `Future`, since aggregate calculations over streams could in practice take a while to complete.)
 
 We need to do some extra work to ensure that the materialized result of the sink (the aggregate sum) is what is returned by the graph when it is run. So we use `toMat()` instead of `to()` when we wire the sink up to the graph. 
